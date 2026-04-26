@@ -17,7 +17,7 @@ export default function LandingB() {
 
         <p style={{ fontSize: '18px', lineHeight: 1.6, color: '#444', margin: '0 0 16px' }}>
           Most teams waste hours every week wrestling with infra. Rollbacks,
-          outages, config drift — it adds up and kills momentum.
+          outages, config drift. It adds up and kills momentum.
         </p>
 
         <p style={{ fontSize: '18px', lineHeight: 1.6, color: '#444', margin: '0 0 40px' }}>

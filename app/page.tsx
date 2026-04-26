@@ -1,8 +1,9 @@
 import Link from 'next/link'
 
 const landings = [
-  { id: 'a', label: 'Landing A — Feature-led' },
-  { id: 'b', label: 'Landing B — Problem-led' },
+  { id: 'a', label: 'Landing A - Feature-led' },
+  { id: 'b', label: 'Landing B - Problem-led' },
+  { id: 'peerdu', label: 'PeerDu - peer-to-peer service platform' },
 ]
 
 export default function IndexPage() {

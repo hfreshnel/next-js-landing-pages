@@ -6,9 +6,10 @@ import { trackEvent } from '@/lib/track'
 interface LandingLayoutProps {
   landingId: string
   children: React.ReactNode
+  style?: React.CSSProperties
 }
 
-export default function LandingLayout({ landingId, children }: LandingLayoutProps) {
+export default function LandingLayout({ landingId, children, style }: LandingLayoutProps) {
   useEffect(() => {
     trackEvent(landingId, 'view')
   }, [landingId])
@@ -25,6 +26,7 @@ export default function LandingLayout({ landingId, children }: LandingLayoutProp
         fontFamily: 'system-ui, -apple-system, sans-serif',
         backgroundColor: '#fafafa',
         color: '#111',
+        ...style,
       }}
     >
       {children}
