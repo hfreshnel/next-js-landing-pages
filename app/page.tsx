@@ -1,9 +1,8 @@
 import Link from 'next/link'
 
 const landings = [
-  { id: 'a', label: 'Landing A - Feature-led' },
-  { id: 'b', label: 'Landing B - Problem-led' },
-  { id: 'peerdu', label: 'PeerDu - peer-to-peer service platform' },
+  { id: 'peerdu', label: 'PeerDù - peer-to-peer service platform' },
+  { id: 'flexyflex', label: 'FlexyFlex - paiement fractionné Mobile Money' },
 ]
 
 export default function IndexPage() {
