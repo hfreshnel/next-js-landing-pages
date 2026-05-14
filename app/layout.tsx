@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Landing Pages',
-  description: 'A/B testing playground for landing pages',
+  title: 'hfreshnel — Fullstack Engineer',
+  description: 'Fullstack systems engineer who builds immersive digital experiences.',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
