@@ -8,7 +8,7 @@ const projects = [
     name: 'Pula Pay',
     desc: 'Fintech systems + product vision',
     index: '01',
-    href: 'https://www.pulapay.app/',
+    href: '/landing/pulapay',
   },
   {
     id: 'metrique',
