@@ -23,3 +23,6 @@ next-env.d.ts
 
 # prompts
 .prompt-templates/landing-*
+
+# portfolio (profils et synthèse privés, dépôt public)
+portfolio-profiles/
