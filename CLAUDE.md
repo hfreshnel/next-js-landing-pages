@@ -1,7 +1,7 @@
 # CLAUDE.md : site portfolio
 
 > Contexte projet. Ne contient que des éléments actés, sauf la section « En cours de décision ».
-> Dernière mise à jour : 2026-10-19.
+> Dernière mise à jour : 2026-10-31.
 > Ce dépôt est **public** : rien de confidentiel dans ce fichier ni dans aucun fichier versionné.
 
 ---
@@ -10,8 +10,8 @@
 
 - Portfolio de développeur classique, destiné aux **recruteurs et collaborateurs potentiels**.
 - Recherche actuelle : une alternance. La page ne le mentionne pas : l'auteur reste ouvert à tout type de proposition (« Ouvert aux propositions »).
-- Remplace le projet de micro-entreprise / agence « HFreshnel » et sa landing page, abandonnés le 2026-10-19. Le code actuel de la page d'accueil (`app/page.tsx`, `components/home/`, `app/a-propos/`, `components/about/`, `lib/homeData.ts`, `lib/aboutData.ts`) relève de cet ancien projet et sera remplacé.
-- Auteur : **Freshnel Houenou**, étudiant développeur fullstack, en France.
+- Remplace le projet de micro-entreprise / agence « HFreshnel », abandonné le 2026-10-19 ; son code a été supprimé le 2026-10-31.
+- Auteur : **Freshnel Houenou**, élève ingénieur à l'ESIGELEC (Rouen, diplôme d'ingénieur généraliste), en France. Titre affiché : « Ingénieur logiciel ».
 
 ---
 
@@ -57,7 +57,8 @@ Règles :
 - Couleurs : fond craie `#F3F4F1` (surface `#E9EBE6`, filet `#D8DBD4`), graphite `#20211F` (texte et panneaux sombres), gris secondaire `#6B6D66`, accent framboise `#C42D62` (texte `#A8264F`). Thème sombre selon le système : fond `#1A1B19`, texte `#EEEBE3`, framboise `#EE7AA0`.
 - Typographies : Bricolage Grotesque (titres, nom), Inter (texte), IBM Plex Mono (métadonnées, notes).
 - Contrastes texte WCAG AA minimum.
-- Visuels : écrans reconstruits fidèlement en HTML à partir du code de chaque app (PulaPay, Kwabo, Métrique), ou captures directes de ce qui existe déjà (DealDraft, excel-course). Rien d'inventé : aucune fonctionnalité absente du code. Le site pose lui-même les rendus dans un cadre (téléphone ou fenêtre) sur fond craie ou graphite ; les fichiers sont livrés bruts. Prompts dans `portfolio-profiles/prompts-visuels.md`.
+- Visuels : écrans rendus à partir du code de chaque app (reconstruction HTML pour PulaPay, vraie app lancée avec des données de démo pour Kwabo et Métrique), ou captures directes de ce qui existe déjà (DealDraft, excel-course). Rien d'inventé : aucune fonctionnalité absente du code. Le site pose lui-même les rendus dans un cadre (téléphone ou fenêtre) sur fond craie ou graphite ; les fichiers sont livrés bruts. Prompts dans `portfolio-profiles/prompts-visuels.md`. Rendus sources dans `../portfolio-assets/<slug>/`, copie publiée dans `public/projects/<slug>/`.
+- Kwabo : la boucle du feed n'est pas publiée tant que la photo de la villa (licence CC BY-SA d'un tiers) n'est pas remplacée par une photo générée par l'auteur.
 
 ---
 
@@ -65,14 +66,15 @@ Règles :
 
 | Élément | Technologie | Statut |
 |---|---|---|
-| Framework | Next.js 16 (App Router), TypeScript | En place |
+| Framework | Next.js 16 (App Router), React 19, TypeScript | En place |
 | Déploiement | Vercel | Acté |
 | Formulaire de contact | Resend (`app/api/contact/route.ts`) | En place |
 | Icônes | lucide-react | En place |
-| Analytics | Plausible | Prévu par l'ancien plan, à confirmer |
-| Animations | Framer Motion (léger) | Prévu par l'ancien plan, à confirmer |
-| Contenu projets | MDX local | Prévu par l'ancien plan, à confirmer |
-| Exploration visuelle | Claude Design (exploration uniquement) | Prévu par l'ancien plan, à confirmer |
+| Analytics | Aucun au lancement | Acté |
+| Animations | CSS uniquement | Acté |
+| Contenu projets | Données TypeScript typées (`lib/content/`) | En place |
+| Polices | `next/font` (Bricolage Grotesque, Inter, IBM Plex Mono) | En place |
+| Règle « pas de tiret cadratin » | `scripts/check-no-emdash.mjs`, lancé en `prebuild` | En place |
 
 ---
 
@@ -85,10 +87,18 @@ Ne pas modifier sans demande explicite :
 
 ---
 
+## Structure du site (actée le 2026-10-31)
+
+- Code du portfolio dans le groupe de routes `app/(portfolio)/` (styles limités au conteneur `.pf`), composants dans `components/portfolio/`.
+- **Structure** : page unique avec barre latérale fixe sur desktop (nom, titre, une phrase, navigation, liens GitHub / CV / e-mail) et colonne qui défile (À propos, Projets, Parcours, Stack, Contact). Une fiche courte par projet (`/projets/<slug>`, lisible en 90 secondes) : encadré rôle / période / équipe / stack / statut, visuel ou vidéo, 3 défis techniques, schéma d'architecture, décisions clés, limites assumées.
+- **Ordre des projets** : PulaPay, Kwabo, DealDraft, excel-course, Métrique (carte « contribution »). Fiches complètes : PulaPay et Kwabo ; fiche courte : Métrique ; DealDraft et excel-course : carte seule pour l'instant.
+- **Concept** : des passages clés soulignés ouvrent une note qui éclaire le projet ou son cheminement : parti pris, insight, comparaison, étape. Pas de « sources » techniques (hash de commit, chemin de fichier). Interrupteur « Afficher toutes les notes » dans la barre latérale. Prototype privé : https://claude.ai/artifact/5BkF15vQL9svxYAMDppLn6
+- Langue : français seul au lancement.
+
+---
+
 ## En cours de décision
 
-- **Structure** (proposée) : page unique avec barre latérale fixe sur desktop (nom, titre, une phrase, navigation, liens GitHub / CV / e-mail) et colonne qui défile (À propos, Projets, Parcours, Stack, Contact). Une fiche courte par projet (`/projets/<slug>`, lisible en 90 secondes) : encadré rôle / période / équipe / stack / statut, visuel ou vidéo, 3 défis techniques, schéma d'architecture, décisions clés, limites assumées.
-- **Ordre des projets** (proposé) : PulaPay, Kwabo, DealDraft, excel-course, Métrique.
-- **Concept** (en test) : des passages clés soulignés ouvrent une note qui éclaire le projet ou son cheminement : parti pris, insight, comparaison, étape. Pas de « sources » techniques (hash de commit, chemin de fichier). Prototype privé : https://claude.ai/artifact/5BkF15vQL9svxYAMDppLn6
 - **3D** : l'auteur en fait, mais rien à montrer pour l'instant. Prévoir de pouvoir ajouter plus tard une section « Expérimentations ».
-- Domaine (hfreshnel.com était lié à l'agence), photo, langue (français seul ou FR / EN), CV PDF.
+- Domaine (hfreshnel.com était lié à l'agence), photo, CV PDF, années de formation, version anglaise.
+- DealDraft : lien vers le code public seulement après décision sur son historique git.
