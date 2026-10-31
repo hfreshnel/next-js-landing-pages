@@ -7,6 +7,8 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
+  // Titre par défaut des pages sans métadonnées propres (landing pages, scrapbook).
+  title: 'Freshnel Houenou',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

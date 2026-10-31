@@ -8,6 +8,8 @@
   --line-strong: #C0C4BB;
   --ink: #20211F;
   --muted: #6B6D66;
+  /* Gris secondaire sur la surface --paper-2 : #6B6D66 n'y atteint que 4,3:1, celui-ci 5,4:1 (AA). */
+  --muted-2: #5C5E57;
   --accent: #C42D62;
   --accent-text: #A8264F;
   --panel: #20211F;
@@ -45,6 +47,7 @@
     --line-strong: #4A4B45;
     --ink: #EEEBE3;
     --muted: #A3A59C;
+    --muted-2: #A3A59C;
     --accent: #EE7AA0;
     --accent-text: #F293B3;
     --panel: #111210;
@@ -188,13 +191,14 @@ html:has(.pf) { background: var(--pf-html-bg, #F3F4F1); }
 .pf .vis--paper { background: var(--paper-2); color: var(--ink); border: 1px solid var(--line); }
 .pf .frames { display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-start; gap: clamp(16px, 3vw, 28px); width: 100%; }
 .pf .frame { margin: 0; display: grid; gap: 10px; justify-items: center; }
-.pf .frame figcaption { font-family: var(--mono); font-size: 11.5px; letter-spacing: .02em; color: var(--muted); text-align: center; }
+.pf .frame figcaption { font-family: var(--mono); font-size: 11.5px; letter-spacing: .02em; color: var(--muted-2); text-align: center; }
 .pf .vis--panel .frame figcaption { color: var(--panel-muted); }
 
 /* Téléphone : coque sobre, écran aux proportions du rendu (412 × 915). */
 .pf .phone { width: min(230px, 44vw); padding: 7px; border-radius: 34px; background: #0B0C0B; box-shadow: 0 0 0 1px color-mix(in srgb, currentColor 18%, transparent), 0 24px 48px -24px rgba(0, 0, 0, .55); }
 .pf .phone-screen { border-radius: 28px; overflow: hidden; aspect-ratio: 412 / 915; background: #000; }
 .pf .phone-screen img, .pf .phone-screen video { width: 100%; height: 100%; object-fit: cover; }
+.pf .phone-screen .loop { height: 100%; }
 .pf .frames--gallery .phone { width: min(200px, 40vw); }
 
 /* Fenêtre : barre neutre, contenu brut. */
@@ -211,7 +215,7 @@ html:has(.pf) { background: var(--pf-html-bg, #F3F4F1); }
 
 .pf .swatches { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 16px; font-family: var(--mono); font-size: 11px; }
 .pf .swatches li { display: flex; align-items: center; gap: 7px; }
-.pf .swatches .sw-k { letter-spacing: .09em; text-transform: uppercase; color: var(--muted); }
+.pf .swatches .sw-k { letter-spacing: .09em; text-transform: uppercase; color: var(--muted-2); }
 .pf .vis--panel .swatches .sw-k { color: var(--panel-muted); }
 .pf .swatches i { width: 10px; height: 10px; border-radius: 2px; background: var(--c); box-shadow: 0 0 0 1px color-mix(in srgb, currentColor 30%, transparent); }
 .pf .swatches--inline { justify-content: flex-start; color: var(--ink); }
@@ -268,7 +272,7 @@ html:has(.pf) { background: var(--pf-html-bg, #F3F4F1); }
 .pf .plain-list li { padding-left: 4px; }
 .pf .plain-list li::marker { color: var(--muted); }
 .pf .plain-list .note { margin-top: 8px; }
-.pf .team-note { font-size: 15px; line-height: 1.55; color: var(--muted); margin: 0; padding: 14px 16px; border-left: 2px solid var(--accent); background: var(--paper-2); max-width: 62ch; }
+.pf .team-note { font-size: 15px; line-height: 1.55; color: var(--muted-2); margin: 0; padding: 14px 16px; border-left: 2px solid var(--accent); background: var(--paper-2); max-width: 62ch; }
 .pf .fiche-foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; padding-top: 20px; border-top: 1px solid var(--line); }
 .pf .fiche-foot a { font-family: var(--mono); font-size: 13px; color: var(--muted); text-decoration: none; }
 .pf .fiche-foot a:hover { color: var(--ink); }
@@ -285,8 +289,8 @@ html:has(.pf) { background: var(--pf-html-bg, #F3F4F1); }
 .pf .arch .layer { fill: var(--paper-2); stroke: var(--line); stroke-width: 1; }
 .pf .arch .t { fill: var(--ink); font-family: var(--body); font-size: 13px; font-weight: 600; }
 .pf .arch .tl { fill: var(--ink); font-family: var(--body); font-size: 12px; font-weight: 500; }
-.pf .arch .s { fill: var(--muted); font-family: var(--mono); font-size: 10px; }
-.pf .arch .lbl { fill: var(--muted); font-family: var(--mono); font-size: 10px; }
+.pf .arch .s { fill: var(--muted-2); font-family: var(--mono); font-size: 10px; }
+.pf .arch .lbl { fill: var(--muted-2); font-family: var(--mono); font-size: 10px; }
 .pf .arch .lbl--accent { fill: var(--accent-text); }
 .pf .arch .ln { stroke: var(--muted); stroke-width: 1.2; fill: none; }
 .pf .arch .ln--hook { stroke: var(--accent); stroke-dasharray: 4 3; }
