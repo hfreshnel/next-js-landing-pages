@@ -28,6 +28,8 @@
   --fs-fiche: clamp(44px, 6.4vw, 76px);
 
   color-scheme: light;
+  /* Le halo de la visite guidée dépasse sur les côtés : clip, contrairement à hidden, garde les éléments collants. */
+  overflow-x: clip;
   min-height: 100vh;
   min-height: 100dvh;
   background: var(--paper);

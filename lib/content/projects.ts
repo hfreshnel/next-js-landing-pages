@@ -22,7 +22,7 @@ const pulapayLoop: Frame = {
   media: {
     type: 'video',
     src: '/projects/pulapay/pulapay-envoi',
-    poster: '/projects/pulapay/pulapay-envoi-poster.png',
+    poster: '/projects/pulapay/pulapay-envoi-poster.webp',
     width: 720,
     height: 1600,
     alt: "PulaPay : envoi de 12 000 F CFA à un contact, du tableau de bord jusqu'à l'écran de succès",
@@ -146,7 +146,7 @@ const kwaboMotion: Frame = {
   media: {
     type: 'video',
     src: '/projects/kwabo/kwabo-motion-ma-part',
-    poster: '/projects/kwabo/kwabo-motion-ma-part-poster.png',
+    poster: '/projects/kwabo/kwabo-motion-ma-part-poster.webp',
     width: 1600,
     height: 900,
     alt: "Animation : une réservation Kwabo, de la demande à la confirmation du paiement Mobile Money, puis le faux backend partagé par l'app et les tests",
@@ -350,7 +350,7 @@ const metriqueChatLoop: Frame = {
   media: {
     type: 'video',
     src: '/projects/metrique/metrique-chat-deux-fenetres',
-    poster: '/projects/metrique/metrique-chat-deux-fenetres-poster.png',
+    poster: '/projects/metrique/metrique-chat-deux-fenetres-poster.webp',
     width: 1600,
     height: 900,
     alt: "Métrique : deux fenêtres côte à côte, un message de la cliente arrive en temps réel chez le prestataire, avec l'indicateur de frappe puis l'accusé de lecture",
@@ -363,7 +363,7 @@ const metriqueMotion: Frame = {
   media: {
     type: 'video',
     src: '/projects/metrique/metrique-motion-ma-part',
-    poster: '/projects/metrique/metrique-motion-ma-part-poster.png',
+    poster: '/projects/metrique/metrique-motion-ma-part-poster.webp',
     width: 1600,
     height: 900,
     alt: "Animation : le trajet d'un message de l'envoi à la lecture, puis une recherche dans le catalogue et l'ajout d'un favori",

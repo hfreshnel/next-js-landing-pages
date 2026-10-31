@@ -126,6 +126,7 @@ function WindowTour({ frames }: { frames: Frame[] }) {
             key={f.media.src}
             type="button"
             className="reel-seg"
+            aria-label={f.caption}
             data-state={i === active ? 'on' : i < active ? 'past' : 'next'}
             aria-current={i === active ? 'step' : undefined}
             onClick={() => setActive(i)}

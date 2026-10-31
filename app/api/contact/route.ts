@@ -1,8 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
-
 // Limite simple par adresse IP, en mémoire de l'instance : suffisant contre les envois en rafale.
 const WINDOW_MS = 10 * 60 * 1000
 const MAX_PER_WINDOW = 3
@@ -44,7 +42,14 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ success: false, message: 'Trop de messages envoyés, réessayez plus tard.' }, { status: 429 })
   }
 
-  const { error } = await resend.emails.send({
+  // Client créé à l'envoi : sans clé, le build passe et la route répond une erreur claire.
+  const apiKey = process.env.RESEND_API_KEY
+  if (!apiKey) {
+    console.error('[contact] RESEND_API_KEY manquante')
+    return NextResponse.json({ success: false, message: "Envoi indisponible pour le moment, écrivez-moi par e-mail." }, { status: 503 })
+  }
+
+  const { error } = await new Resend(apiKey).emails.send({
     from: process.env.CONTACT_FROM_EMAIL ?? 'Portfolio <onboarding@resend.dev>',
     to: process.env.CONTACT_TO_EMAIL ?? 'hfreshnel@gmail.com',
     replyTo: email,
