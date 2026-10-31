@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next'
 import { projectsWithFiche } from '@/lib/content/projects'
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://hfreshnel.com'
 
 // Portfolio uniquement : ni les landing pages de validation ni le scrapbook.
 export default function sitemap(): MetadataRoute.Sitemap {

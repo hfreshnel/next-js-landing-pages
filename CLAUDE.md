@@ -67,7 +67,7 @@ Règles :
 | Élément | Technologie | Statut |
 |---|---|---|
 | Framework | Next.js 16 (App Router), React 19, TypeScript | En place |
-| Déploiement | Vercel | Acté |
+| Déploiement | Vercel, domaine hfreshnel.com | Acté |
 | Formulaire de contact | Resend (`app/api/contact/route.ts`) | En place |
 | Icônes | lucide-react | En place |
 | Analytics | Aucun au lancement | Acté |
@@ -100,5 +100,5 @@ Ne pas modifier sans demande explicite :
 ## En cours de décision
 
 - **3D** : l'auteur en fait, mais rien à montrer pour l'instant. Prévoir de pouvoir ajouter plus tard une section « Expérimentations ».
-- Domaine (hfreshnel.com était lié à l'agence), photo, années de formation, version anglaise.
+- Photo, années de formation, version anglaise.
 - DealDraft : lien vers le code public seulement après décision sur son historique git.

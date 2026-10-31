@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 // Layout racine minimal : le portfolio a son propre layout (groupe `(portfolio)`),
 // les landing pages et le scrapbook gardent leurs styles.
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://hfreshnel.com'
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
