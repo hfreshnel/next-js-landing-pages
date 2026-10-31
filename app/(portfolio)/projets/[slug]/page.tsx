@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import Architecture from '@/components/portfolio/Architecture'
 import { Visual } from '@/components/portfolio/Frames'
+import ScreenTour from '@/components/portfolio/ScreenTour'
 import { RichText } from '@/components/portfolio/notes'
 import { getProject, projectsWithFiche } from '@/lib/content/projects'
 
@@ -32,13 +33,22 @@ export default async function FichePage({ params }: Params) {
   const f = p.fiche
 
   const index = projectsWithFiche.findIndex((x) => x.slug === p.slug)
-  const next = projectsWithFiche[(index + 1) % projectsWithFiche.length]
+  const count = projectsWithFiche.length
+  const prev = projectsWithFiche[(index - 1 + count) % count]
+  const next = projectsWithFiche[(index + 1) % count]
 
   return (
     <article className="fiche" aria-labelledby="f-title">
-      <Link className="back" href="/#projets">
-        ← Projets
-      </Link>
+      {/* Barre collante : retour aux projets à tout moment, et progression de lecture. */}
+      <div className="fiche-bar">
+        <Link className="back" href="/#projets">
+          ← Projets
+        </Link>
+        <span className="fiche-bar-name" aria-hidden="true">
+          {p.name}
+        </span>
+        <span className="fiche-bar-progress" aria-hidden="true" />
+      </div>
 
       <header className="fiche-head">
         <p className="mono-label">Fiche projet · {p.meta}</p>
@@ -139,13 +149,23 @@ export default async function FichePage({ params }: Params) {
           <h2 className="fiche-h display" id="h-galerie">
             {f.gallery.title}
           </h2>
-          <Visual surface={f.heroSurface} frames={f.gallery.frames} gallery />
+          <ScreenTour frames={f.gallery.frames} glow={p.palette[0]?.hex} />
         </section>
       ) : null}
 
       <nav className="fiche-foot" aria-label="Fiches">
-        <Link href="/#projets">← Retour aux projets</Link>
-        {next && next.slug !== p.slug ? <Link href={`/projets/${next.slug}`}>Fiche suivante : {next.name} →</Link> : null}
+        {prev.slug !== p.slug ? (
+          <Link href={`/projets/${prev.slug}`} rel="prev">
+            <span className="mono-label">Fiche précédente</span>
+            <span className="fiche-foot-name display">← {prev.name}</span>
+          </Link>
+        ) : null}
+        {next.slug !== p.slug ? (
+          <Link href={`/projets/${next.slug}`} rel="next" className="fiche-foot-next">
+            <span className="mono-label">Fiche suivante</span>
+            <span className="fiche-foot-name display">{next.name} →</span>
+          </Link>
+        ) : null}
       </nav>
     </article>
   )

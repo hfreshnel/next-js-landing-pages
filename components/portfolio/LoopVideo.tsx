@@ -5,12 +5,27 @@ import { useEffect, useRef, useState } from 'react'
 // Boucle muette : lecture seulement quand elle est visible, chargement différé,
 // et rien en lecture automatique si l'utilisateur a demandé moins d'animations.
 
-type Props = { src: string; poster: string; width: number; height: number; alt: string }
+type Props = { src: string; poster: string; width: number; height: number; alt: string; active?: boolean }
 
-export default function LoopVideo({ src, poster, width, height, alt }: Props) {
+export default function LoopVideo({ src, poster, width, height, alt, active = true }: Props) {
   const ref = useRef<HTMLVideoElement>(null)
+  const visible = useRef(false)
+  const activeRef = useRef(active)
   const [paused, setPaused] = useState(true)
   const [userPaused, setUserPaused] = useState(false)
+
+  // Dans une visite guidée, seule la vidéo de l'écran affiché tourne.
+  useEffect(() => {
+    activeRef.current = active
+    const video = ref.current
+    if (!video) return
+    if (active && visible.current && !video.dataset.userPaused && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      if (video.preload !== 'auto') video.preload = 'auto'
+      video.play().catch(() => {})
+    } else if (!active) {
+      video.pause()
+    }
+  }, [active])
 
   useEffect(() => {
     const video = ref.current
@@ -22,7 +37,8 @@ export default function LoopVideo({ src, poster, width, height, alt }: Props) {
     }
     const io = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && !video.dataset.userPaused) {
+        visible.current = entry.isIntersecting
+        if (entry.isIntersecting && activeRef.current && !video.dataset.userPaused) {
           if (video.preload !== 'auto') video.preload = 'auto'
           video.play().catch(() => {})
         } else {

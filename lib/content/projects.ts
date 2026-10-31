@@ -128,7 +128,7 @@ const pulapay: Project = {
       'KYC modélisé dans les données mais pas implémenté ; lien de paiement pas encore disponible.',
     ],
     gallery: {
-      title: "Écrans de l'app",
+      title: "Parcours dans l'app",
       frames: [
         phone('/projects/pulapay/pulapay-envoi-sombre.png', 'PulaPay : formulaire d\'envoi, bénéficiaire trouvé par son numéro, montant et message saisis', 'Envoi à un contact'),
         phone('/projects/pulapay/pulapay-envoi-succes-sombre.png', 'PulaPay : écran de succès du transfert', 'Transfert réussi'),
@@ -270,7 +270,7 @@ const kwabo: Project = {
       "Pas d'intégration continue ni de tests de bout en bout sur l'app mobile.",
     ],
     gallery: {
-      title: "Écrans de l'app",
+      title: "Parcours dans l'app",
       frames: [
         phone('/projects/kwabo/kwabo-feed-clair.png', "Kwabo : feed plein écran sur une annonce d'hôtel à Cotonou", "Feed d'annonces"),
         phone('/projects/kwabo/kwabo-recherche-carte-clair.png', 'Kwabo : recherche filtrée sur Cotonou, carte OpenStreetMap et aperçu de l\'annonce sélectionnée', 'Recherche sur carte'),
