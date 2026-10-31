@@ -67,7 +67,6 @@ export default function Sidebar() {
               GitHub ↗
             </a>
           </li>
-          <li>{site.cv ? <a href={site.cv}>CV (PDF)</a> : <span className="ph">CV à venir</span>}</li>
           <li>
             <a href={`mailto:${site.email}`}>{site.email}</a>
           </li>

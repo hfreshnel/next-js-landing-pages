@@ -7,8 +7,6 @@ export const site = {
   status: 'Ouvert aux propositions',
   email: 'hfreshnel@gmail.com',
   github: 'https://github.com/hfreshnel',
-  /** CV PDF : à déposer dans public/ puis à renseigner ici. */
-  cv: null as string | null,
   description:
     "Freshnel Houenou, ingénieur logiciel : apps mobiles, API et paiements pour l'Afrique francophone, IA encadrée par du code vérifiable.",
 }

@@ -80,10 +80,6 @@ export default function HomePage() {
               </a>
             </dd>
           </div>
-          <div>
-            <dt>CV</dt>
-            <dd>{site.cv ? <a href={site.cv}>Télécharger le CV (PDF)</a> : <span className="ph">PDF à venir</span>}</dd>
-          </div>
         </dl>
         <p className="footer">
           Les écrans montrés sont rendus à partir du code de chaque projet, avec des données de démonstration. Les projets d&apos;équipe

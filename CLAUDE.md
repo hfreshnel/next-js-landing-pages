@@ -90,7 +90,7 @@ Ne pas modifier sans demande explicite :
 ## Structure du site (actée le 2026-10-31)
 
 - Code du portfolio dans le groupe de routes `app/(portfolio)/` (styles limités au conteneur `.pf`), composants dans `components/portfolio/`.
-- **Structure** : page unique avec barre latérale fixe sur desktop (nom, titre, une phrase, navigation, liens GitHub / CV / e-mail) et colonne qui défile (À propos, Projets, Parcours, Stack, Contact). Une fiche courte par projet (`/projets/<slug>`, lisible en 90 secondes) : encadré rôle / période / équipe / stack / statut, visuel ou vidéo, 3 défis techniques, schéma d'architecture, décisions clés, limites assumées.
+- **Structure** : page unique avec barre latérale fixe sur desktop (nom, titre, une phrase, navigation, liens GitHub et e-mail, pas de CV) et colonne qui défile (À propos, Projets, Parcours, Stack, Contact). Une fiche courte par projet (`/projets/<slug>`, lisible en 90 secondes) : encadré rôle / période / équipe / stack / statut, visuel ou vidéo, 3 défis techniques, schéma d'architecture, décisions clés, limites assumées.
 - **Ordre des projets** : PulaPay, Kwabo, DealDraft, excel-course, Métrique (carte « contribution »). Fiches complètes : PulaPay et Kwabo ; fiche courte : Métrique ; DealDraft et excel-course : carte seule pour l'instant.
 - **Concept** : des passages clés soulignés ouvrent une note qui éclaire le projet ou son cheminement : parti pris, insight, comparaison, étape. Pas de « sources » techniques (hash de commit, chemin de fichier). Interrupteur « Afficher toutes les notes » dans la barre latérale. Prototype privé : https://claude.ai/artifact/5BkF15vQL9svxYAMDppLn6
 - Langue : français seul au lancement.
@@ -100,5 +100,5 @@ Ne pas modifier sans demande explicite :
 ## En cours de décision
 
 - **3D** : l'auteur en fait, mais rien à montrer pour l'instant. Prévoir de pouvoir ajouter plus tard une section « Expérimentations ».
-- Domaine (hfreshnel.com était lié à l'agence), photo, CV PDF, années de formation, version anglaise.
+- Domaine (hfreshnel.com était lié à l'agence), photo, années de formation, version anglaise.
 - DealDraft : lien vers le code public seulement après décision sur son historique git.
