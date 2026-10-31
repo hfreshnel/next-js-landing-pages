@@ -1,7 +1,7 @@
 # CLAUDE.md : site portfolio
 
 > Contexte projet. Ne contient que des éléments actés, sauf la section « En cours de décision ».
-> Dernière mise à jour : 2026-10-31.
+> Dernière mise à jour : 2026-11-01.
 > Ce dépôt est **public** : rien de confidentiel dans ce fichier ni dans aucun fichier versionné.
 
 ---
@@ -26,6 +26,16 @@ AppartLink et PackLoop sont retirés du portfolio.
 | DealDraft | Pipeline IA d'étude de rendement immobilier (FastAPI, n8n, OpenAI) | Seul auteur |
 | excel-course | Pipeline de production de cours vidéo Excel (Python, Remotion) | Seul auteur |
 | Métrique | Marketplace de services au Bénin | Backend partiel, équipe de 3 |
+
+### Expérimentations IA (actées le 2026-11-01)
+
+Projets exploratoires, en local sur un GPU portable de 6 Go, que l'auteur prévoit de publier en open source :
+
+| Projet | Nature | Rôle de l'auteur |
+|---|---|---|
+| weaver | Banc d'évaluation d'un agent IA local sur des demandes de novices (machine Linux simulée) | Seul auteur |
+| text-to-3d | Pipeline texte vers modèle 3D en quads pour Blender | Seul auteur |
+| Génération image et vidéo | Laboratoire de comparaisons mesurées (images, vidéo, pub pour Métrique) | Seul auteur |
 
 ---
 
@@ -90,8 +100,9 @@ Ne pas modifier sans demande explicite :
 ## Structure du site (actée le 2026-10-31)
 
 - Code du portfolio dans le groupe de routes `app/(portfolio)/` (styles limités au conteneur `.pf`), composants dans `components/portfolio/`.
-- **Structure** : page unique avec barre latérale fixe sur desktop (nom, titre, une phrase, navigation, liens GitHub et e-mail, pas de CV) et colonne qui défile (À propos, Projets, Parcours, Stack, Contact). Une fiche courte par projet (`/projets/<slug>`, lisible en 90 secondes) : encadré rôle / période / équipe / stack / statut, visuel ou vidéo, 3 défis techniques, schéma d'architecture, décisions clés, limites assumées.
+- **Structure** : page unique avec barre latérale fixe sur desktop (nom, titre, une phrase, navigation, liens GitHub et e-mail, pas de CV) et colonne qui défile (À propos, Projets, Expérimentations, Parcours, Stack, Contact). Une fiche courte par projet (`/projets/<slug>`, lisible en 90 secondes) : encadré rôle / période / équipe / stack / statut, visuel ou vidéo, 3 défis techniques, schéma d'architecture, décisions clés, limites assumées.
 - **Ordre des projets** : PulaPay, Kwabo, DealDraft, excel-course, Métrique (carte « contribution »). Fiches complètes : PulaPay et Kwabo ; fiche courte : Métrique ; DealDraft et excel-course : carte seule pour l'instant.
+- **Expérimentations** : weaver, text-to-3d, génération image et vidéo, en cartes seules pour l'instant. Afficher ce qui est mesuré (méthode, résultats, verdicts), pas la vision à long terme. Lien vers le code seulement une fois les dépôts publiés.
 - **Concept** : des passages clés soulignés ouvrent une note qui éclaire le projet ou son cheminement : parti pris, insight, comparaison, étape. Pas de « sources » techniques (hash de commit, chemin de fichier). Interrupteur « Afficher toutes les notes » dans la barre latérale. Prototype privé : https://claude.ai/artifact/5BkF15vQL9svxYAMDppLn6
 - Langue : français seul au lancement.
 
@@ -99,6 +110,6 @@ Ne pas modifier sans demande explicite :
 
 ## En cours de décision
 
-- **3D** : l'auteur en fait, mais rien à montrer pour l'instant. Prévoir de pouvoir ajouter plus tard une section « Expérimentations ».
+- Expérimentations : choix des visuels, et vérification des licences des modèles dont les sorties sont publiées.
 - Photo, années de formation, version anglaise.
 - DealDraft : lien vers le code public seulement après décision sur son historique git.
