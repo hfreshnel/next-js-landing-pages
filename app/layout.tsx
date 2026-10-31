@@ -1,13 +1,17 @@
 import type { Metadata } from 'next'
 
+// Layout racine minimal : le portfolio a son propre layout (groupe `(portfolio)`),
+// les landing pages et le scrapbook gardent leurs styles.
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'
+
 export const metadata: Metadata = {
-  title: 'hfreshnel — Fullstack Engineer',
-  description: 'Fullstack systems engineer who builds immersive digital experiences.',
+  metadataBase: new URL(siteUrl),
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="fr">
       <body style={{ margin: 0, padding: 0 }}>{children}</body>
     </html>
   )
