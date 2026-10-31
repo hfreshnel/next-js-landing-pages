@@ -7,7 +7,7 @@ import LoopVideo from './LoopVideo'
 function MediaView({ frame, sizes, priority }: { frame: Frame; sizes: string; priority?: boolean }) {
   const m = frame.media
   if (m.type === 'video') return <LoopVideo src={m.src} poster={m.poster} width={m.width} height={m.height} alt={m.alt} />
-  return <Image src={m.src} alt={m.alt} width={m.width} height={m.height} sizes={sizes} priority={priority} />
+  return <Image src={m.src} alt={m.alt} width={m.width} height={m.height} sizes={sizes} preload={priority} />
 }
 
 export function FrameView({ frame, priority, gallery }: { frame: Frame; priority?: boolean; gallery?: boolean }) {
