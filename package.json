@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "prebuild": "node scripts/check-no-emdash.mjs",
+    "check:emdash": "node scripts/check-no-emdash.mjs",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "lucide-react": "^1.16.0",
