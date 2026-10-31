@@ -262,7 +262,7 @@ html:has(.pf) { background: var(--pf-html-bg, #F3F4F1); }
 .pf .fiche-sec p { margin: 0; }
 .pf .challenges { list-style: none; margin: 0; padding: 0; display: grid; gap: 22px; }
 .pf .challenges li { display: grid; gap: 8px; padding-top: 16px; border-top: 1px solid var(--line); }
-.pf .challenges h4 { font-size: 17px; font-weight: 600; margin: 0; }
+.pf .challenges h3 { font-size: 17px; font-weight: 600; margin: 0; }
 .pf .challenges p { margin: 0; }
 .pf .plain-list { margin: 0; padding-left: 1.1em; display: grid; gap: 12px; }
 .pf .plain-list li { padding-left: 4px; }
