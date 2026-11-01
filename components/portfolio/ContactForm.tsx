@@ -21,10 +21,10 @@ export default function ContactForm() {
       const json = (await res.json().catch(() => ({}))) as { success?: boolean; message?: string }
       if (!res.ok || !json.success) throw new Error(json.message)
       form.reset()
-      setStatus({ kind: 'sent', message: 'Message envoyé. Je vous réponds rapidement.' })
+      setStatus({ kind: 'sent', message: 'Message reçu. Je vous répondrai dès que possible.' })
     } catch (err) {
       const message = err instanceof Error && err.message ? err.message : "L'envoi a échoué."
-      setStatus({ kind: 'error', message: `${message} Vous pouvez aussi m'écrire directement par e-mail.` })
+      setStatus({ kind: 'error', message: `${message} Écrivez-moi directement par e-mail.` })
     }
   }
 

@@ -54,7 +54,7 @@ export default async function FichePage({ params }: Params) {
       </div>
 
       <header className="fiche-head">
-        <p className="mono-label">Fiche projet · {p.meta}</p>
+        <p className="mono-label">Fiche projet · {p.ficheMeta ?? p.meta}</p>
         <h1 className="fiche-title display" id="f-title">
           {p.name}
         </h1>

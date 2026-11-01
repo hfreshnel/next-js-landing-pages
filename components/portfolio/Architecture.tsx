@@ -82,7 +82,7 @@ function PulaPay() {
       <line className="ln" x1="20" y1="408" x2="50" y2="408" markerEnd={ah} />
       <text className="lbl" x="58" y="412">appel</text>
       <line className="ln ln--hook" x1="110" y1="408" x2="140" y2="408" markerEnd={ahh} />
-      <text className="lbl" x="148" y="412">webhook signé : RSA-SHA256 (Circle), HMAC-SHA256 (Coinbase)</text>
+      <text className="lbl" x="148" y="412">webhook signé (RSA, HMAC)</text>
     </svg>
   )
 }
@@ -111,7 +111,7 @@ function Kwabo() {
 
       <rect className="box--mine" x="20" y="30" width="190" height="236" rx="6" />
       <text className="t" x="36" y="54">App Android</text>
-      <text className="s" x="36" y="71">Expo · React Native · TypeScript</text>
+      <text className="s" x="36" y="71">React Native · TypeScript</text>
       <rect className="layer" x="34" y="84" width="162" height="36" rx="3" />
       <text className="tl" x="46" y="99">Écrans</text>
       <text className="s" x="46" y="113">expo-router</text>
@@ -129,7 +129,7 @@ function Kwabo() {
       <text className="lbl" x="124" y="298">mode mocks</text>
       <rect className="box--mine" x="20" y="320" width="190" height="60" rx="6" />
       <text className="t" x="36" y="344">Faux backend</text>
-      <text className="s" x="36" y="362">46 routes · servi aux tests par MSW</text>
+      <text className="s" x="36" y="362">46 routes · tests via MSW</text>
 
       <line className="ln" x1="212" y1="152" x2="268" y2="152" markerEnd={ah} />
       <text className="lbl" x="240" y="143" textAnchor="middle">HTTPS</text>

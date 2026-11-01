@@ -3,12 +3,12 @@ import type { Rich } from './types'
 export const site = {
   name: 'Freshnel Houenou',
   role: 'Ingénieur logiciel · France',
-  thesis: "Je construis des produits où l'argent et l'IA doivent tomber juste.",
+  thesis: 'Je construis des produits où chaque paiement et chaque réponse d’IA doivent pouvoir se vérifier.',
   status: 'Ouvert aux propositions',
   email: 'hfreshnel@gmail.com',
   github: 'https://github.com/hfreshnel',
   description:
-    "Freshnel Houenou, ingénieur logiciel : apps mobiles, API et paiements pour l'Afrique francophone, IA encadrée par du code vérifiable.",
+    'Freshnel Houenou, ingénieur logiciel en France : applications mobiles, API, paiements et IA appliquée, avec des contrôles vérifiables.',
 }
 
 export const sections = [
@@ -21,28 +21,28 @@ export const sections = [
 ] as const
 
 export const about: { lede: string; body: Rich } = {
-  lede: "Ingénieur logiciel, je conçois des produits complets, de l'app mobile à l'API. Mes cinq derniers projets, menés seul ou en équipe, vont du paiement mobile à l'IA appliquée. À côté, j'expérimente l'IA en local : agents, 3D, image et vidéo.",
+  lede: 'Ingénieur logiciel, je développe des applications mobiles, des API et des outils qui relient des usages concrets à des systèmes fiables. Mes projets vont du paiement mobile à l’IA appliquée, en solo ou en équipe. En parallèle, j’expérimente des modèles locaux pour l’automatisation, l’image, la vidéo et la 3D.',
   body: [
-    'Dans chacun, je cherche à ',
+    'D’un projet à l’autre, je cherche à ',
     {
-      claim: "rendre fiable ce qui ne l'est pas par défaut",
+      claim: 'rendre fiables les opérations qui ne le sont pas par défaut',
       kind: 'Insight',
-      note: "Un webhook peut ne jamais arriver, un modèle de langage peut inventer un chiffre. Le problème est le même dans les deux cas : un message qu'on ne peut pas croire sur parole. La réponse aussi : le vérifier contre une autre source, et laisser le dernier mot au code.",
+      note: 'Un webhook peut manquer ; un modèle de langage peut produire un chiffre absent de sa source. Dans les deux cas, je ne traite pas le message comme une preuve : je le confronte à une source vérifiable, puis je confie au code les contrôles qu’il peut effectuer sans ambiguïté.',
     },
-    " : les flux d'argent, avec un ledger en partie double et des webhooks vérifiés, et les sorties d'IA, avec des citations contrôlées et des calculs confiés au code.",
+    ' : les transferts d’argent, avec un ledger en partie double et des webhooks vérifiés, et les résultats d’IA, avec des citations contrôlées et des calculs confiés au code.',
   ],
 }
 
 /** `years: null` = information à fournir, affichée comme un emplacement visible. */
 export const parcours: Array<{ years: string | null; title: string; detail: string }> = [
-  { years: null, title: "Diplôme d'ingénieur généraliste", detail: 'ESIGELEC, Rouen' },
-  { years: '2025 → 2026', title: "Cinq projets, du paiement mobile à l'IA appliquée", detail: 'Détail dans la section Projets' },
-  { years: '2026', title: "Expérimentations d'IA en local", detail: 'Détail dans la section Expérimentations' },
+  { years: '2022 → 2025', title: 'Diplôme d’ingénieur généraliste', detail: 'ESIGELEC, Rouen' },
+  { years: '2025 → 2026', title: 'Cinq projets, du paiement mobile à l’IA appliquée', detail: 'Voir les projets' },
+  { years: '2026', title: 'Expérimentations locales en IA, image, vidéo et 3D', detail: 'Voir les expérimentations' },
 ]
 
 // Outils réellement utilisés dans les projets présentés (voir les profils).
 export const stack: Array<{ domain: string; items: string[] }> = [
-  { domain: 'Mobile', items: ['React Native', 'Expo', 'expo-router', 'TanStack Query', 'Zustand'] },
+  { domain: 'Mobile', items: ['React Native', 'Expo', 'Expo Router', 'TanStack Query', 'Zustand'] },
   { domain: 'Web', items: ['TypeScript', 'React', 'Next.js'] },
   { domain: 'Backend', items: ['Node.js', 'Express', 'Python', 'FastAPI', 'Pydantic'] },
   { domain: 'Données', items: ['PostgreSQL', 'Prisma', 'MongoDB', 'Redis', 'BullMQ'] },

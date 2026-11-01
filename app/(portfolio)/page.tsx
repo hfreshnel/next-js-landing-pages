@@ -15,8 +15,8 @@ export default function HomePage() {
           <RichText segs={about.body} />
         </div>
         <p className="hint">
-          Les passages <span className="sample">soulignés en pointillé</span> ouvrent une note : un parti pris, une comparaison, une
-          étape du projet. Cliquez dessus, ou activez « Afficher toutes les notes ».
+          Les passages <span className="sample">soulignés en pointillé</span> ouvrent une note sur un choix, une comparaison ou une
+          étape du projet. Cliquez dessus ou activez « Afficher toutes les notes ».
         </p>
       </section>
 
@@ -79,7 +79,7 @@ export default function HomePage() {
 
       <section className="sec" id="contact" aria-labelledby="h-contact">
         <h2 className="sec-label" id="h-contact">Contact</h2>
-        <p className="contact-lede display">Une proposition, un projet, une question ?</p>
+        <p className="contact-lede display">Un projet à construire ou un sujet à clarifier ?</p>
         <ContactForm />
         <dl className="rows">
           <div>
@@ -98,8 +98,8 @@ export default function HomePage() {
           </div>
         </dl>
         <p className="footer">
-          Les écrans montrés sont rendus à partir du code de chaque projet, avec des données de démonstration. Les projets d&apos;équipe
-          précisent ma part exacte.
+          Les écrans présentés sont rendus à partir du code des projets et utilisent des données de démonstration. Pour chaque projet
+          d&apos;équipe, je précise le périmètre exact de ma contribution.
         </p>
       </section>
     </>

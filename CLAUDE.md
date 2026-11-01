@@ -11,7 +11,7 @@
 - Portfolio de développeur classique, destiné aux **recruteurs et collaborateurs potentiels**.
 - Recherche actuelle : une alternance. La page ne le mentionne pas : l'auteur reste ouvert à tout type de proposition (« Ouvert aux propositions »).
 - Remplace le projet de micro-entreprise / agence « HFreshnel », abandonné le 2026-10-19 ; son code a été supprimé le 2026-10-31.
-- Auteur : **Freshnel Houenou**, élève ingénieur à l'ESIGELEC (Rouen, diplôme d'ingénieur généraliste), en France. Titre affiché : « Ingénieur logiciel ».
+- Auteur : **Freshnel Houenou**, ingénieur diplômé de l'ESIGELEC (Rouen, diplôme d'ingénieur généraliste, 2022 → 2025), en France. Titre affiché : « Ingénieur logiciel ».
 
 ---
 

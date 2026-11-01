@@ -34,7 +34,7 @@ const pulapayLoop: Frame = {
 const pulapay: Project = {
   slug: 'pulapay',
   name: 'PulaPay',
-  meta: 'Seul auteur · 2025 → 2026 · Mobile et API',
+  meta: 'Seul auteur · 2025-2026 · Mobile et API',
   lede: [
     'Un wallet USDC où chaque transfert reste cohérent, ',
     {
@@ -48,11 +48,11 @@ const pulapay: Project = {
     'Acheter des USDC par carte, les envoyer à un contact par son numéro et revenir en monnaie locale, avec des montants affichés en francs CFA, euros ou dollars.',
   ],
   state: ['MVP sur testnet', '≈ 317 tests backend'],
-  stack: 'Expo · React Native · Express · PostgreSQL · BullMQ · Circle · Coinbase CDP',
+  stack: 'Expo · React Native · Express · PostgreSQL · Circle · Coinbase CDP',
   palette: [{ hex: '#FF6B00' }, { hex: '#0A0A0A' }, { hex: '#5B2EFF' }],
   card: { surface: 'panel', frames: [pulapayLoop] },
   fiche: {
-    lede: 'Portefeuille mobile USDC non custodial : acheter, envoyer et retirer des dollars numériques, avec des montants affichés en francs CFA ou en euros.',
+    lede: 'Portefeuille mobile USDC non custodial : acheter, envoyer et retirer des dollars numériques, avec des montants affichés en francs CFA ou en euros, sur testnet pour l’instant.',
     facts: {
       role: 'Conception et développement, app mobile et API',
       period: '2025 → 2026',
@@ -74,7 +74,7 @@ const pulapay: Project = {
       {
         title: 'Aucun solde écrasé sous concurrence',
         body: [
-          "La confirmation d'un transfert verrouille la transaction, met à jour les soldes par incrément et écrit le ledger ",
+          "Deux confirmations simultanées pouvaient écraser un solde. La confirmation d'un transfert verrouille désormais la transaction, met à jour les soldes par incrément et écrit le ledger ",
           {
             claim: 'dans le même bloc atomique',
             kind: 'Insight',
@@ -92,7 +92,7 @@ const pulapay: Project = {
             kind: 'Comparaison',
             note: 'Un webhook seul est simple mais fragile ; un polling seul est fiable mais lent et coûteux en appels. Les deux ensemble se complètent : le webhook règle le cas normal en quelques secondes, le balayage rattrape les oublis.',
           },
-          '.',
+          " : chaque transfert en attente est revérifié auprès de Circle, puis expiré si rien n'aboutit.",
         ],
       },
       {
@@ -104,12 +104,12 @@ const pulapay: Project = {
             kind: 'Étape',
             note: "Le paiement passait d'abord par MoMo, remplacé par Coinbase en février 2026. En mars, passage de Polygon à Base, et des wallets gérés par la plateforme aux wallets contrôlés par l'utilisateur, qui signe chaque opération avec son PIN. Chaque changement est passé par les adapters.",
           },
-          ' sans réécrire les règles métier.',
+          ' sans réécrire les règles métier : le paiement, la blockchain et le modèle de wallet ont changé, et chacun est passé par les adapters.',
         ],
       },
     ],
     architecture: 'pulapay',
-    architectureCaption: "Vue simplifiée de l'app mobile et de l'API.",
+    architectureCaption: "Vue simplifiée de l'app mobile et de l'API : architecture hexagonale, webhooks signés par Circle (RSA-SHA256) et Coinbase (HMAC-SHA256).",
     decisions: [
       [
         'Ledger en partie double et montants en décimal exact : ',
@@ -132,9 +132,9 @@ const pulapay: Project = {
       title: "Parcours dans l'app",
       frames: [
         phone('/projects/pulapay/pulapay-envoi-sombre.png', 'PulaPay : formulaire d\'envoi, bénéficiaire trouvé par son numéro, montant et message saisis', 'Envoi à un contact'),
-        phone('/projects/pulapay/pulapay-envoi-succes-sombre.png', 'PulaPay : écran de succès du transfert', 'Transfert réussi'),
+        phone('/projects/pulapay/pulapay-envoi-succes-sombre.png', "PulaPay : écran de succès affiché à la fin d'un envoi d'argent à un contact", 'Transfert réussi'),
         phone('/projects/pulapay/pulapay-reception-sombre.png', 'PulaPay : réception par QR code, avec le réseau et l\'adresse du wallet', 'Réception par QR code'),
-        phone('/projects/pulapay/pulapay-activite-sombre.png', 'PulaPay : activité, totaux reçus et envoyés, filtres et liste des transactions', 'Activité'),
+        phone('/projects/pulapay/pulapay-activite-sombre.png', 'PulaPay : activité, totaux reçus et envoyés, filtres et liste des transactions', "Historique d'activité"),
       ],
     },
   },
@@ -152,7 +152,7 @@ const kwaboMotion: Frame = {
     height: 900,
     alt: "Animation : une réservation Kwabo, de la demande à la confirmation du paiement Mobile Money, puis le faux backend partagé par l'app et les tests",
   },
-  caption: "Ma part : la réservation et le paiement côté app, puis le faux backend",
+  caption: "Ma part : réservation et paiement côté app, puis le faux backend",
 }
 
 const kwabo: Project = {
@@ -167,7 +167,7 @@ const kwabo: Project = {
     {
       claim: 'un faux backend fidèle au contrat réel',
       kind: 'Comparaison',
-      note: "Des données factices écran par écran auraient été plus rapides à écrire, mais chaque écran aurait été faux à sa manière. Le faux backend applique les mêmes règles et les mêmes refus que l'API Java, et les 88 tests tournent dessus : un écart de contrat casse un test avant de casser l'app.",
+      note: "Des données factices écran par écran auraient été plus rapides, mais chaque écran aurait été faux à sa manière. Le faux backend applique les mêmes règles et les mêmes refus que l'API Java, et les 88 tests tournent dessus : un écart de contrat casse un test avant l'app.",
     },
     ". Le brancher ensuite sur la vraie API m'a conduit à ",
     {
@@ -184,7 +184,7 @@ const kwabo: Project = {
     surface: 'paper',
     frames: [
       phone('/projects/kwabo/kwabo-feed-clair.png', "Kwabo : feed plein écran, une annonce d'hôtel à Cotonou avec son prix et les boutons Réserver et Contacter", 'Feed d\'annonces'),
-      phone('/projects/kwabo/kwabo-paiement-attente-clair.png', 'Kwabo : paiement en attente, « Confirmez sur votre téléphone »', 'Paiement par USSD'),
+      phone('/projects/kwabo/kwabo-paiement-attente-clair.png', "Kwabo : paiement en attente, message « Confirmez sur votre téléphone » affiché à l'écran", 'Paiement par USSD'),
     ],
   },
   fiche: {
@@ -203,7 +203,7 @@ const kwabo: Project = {
         "Au Bénin, chercher un logement et le payer passe souvent par le téléphone et le Mobile Money plutôt que par la carte bancaire. Kwabo répond à ce besoin avec une plateforme complète. L'API, le site web et l'infrastructure sont portés par une autre équipe ; j'ai pris en charge l'app mobile Android, en Expo et TypeScript strict, en partie à partir d'écrans repris du travail d'un coéquipier et adaptés.",
       ],
       [
-        "L'app couvre le feed d'annonces, la recherche sur carte, la réservation avec calendrier, le paiement FeexPay par demande USSD avec suivi en direct, la messagerie, les notifications push, le KYC et la publication d'annonces.",
+        "L'app couvre le feed d'annonces, la recherche sur carte, la réservation avec calendrier, le paiement FeexPay par demande USSD avec suivi en direct, la messagerie, les notifications push, le KYC et la publication d'annonces par les hôtes.",
       ],
     ],
     challenges: [
@@ -214,7 +214,7 @@ const kwabo: Project = {
           {
             claim: "interroge le statut toutes les 3 secondes",
             kind: 'Parti pris',
-            note: "Aucune page web ni redirection : l'issue du paiement se lit uniquement via l'API, toutes les 3 secondes, avec un plafond de 5 minutes. Au-delà, l'app propose de revérifier plutôt que d'attendre indéfiniment. La création de la réservation porte une clé d'idempotence, pour qu'un double appui ne crée pas deux réservations.",
+            note: "Aucune page web ni redirection : l'issue du paiement se lit uniquement via l'API, toutes les 3 secondes, avec un plafond de 5 minutes. Au-delà, l'app propose de revérifier plutôt que d'attendre indéfiniment. La réservation porte une clé d'idempotence : un double appui n'en crée pas deux.",
           },
           " et gère l'échec, l'expiration et la reprise.",
         ],
@@ -273,12 +273,12 @@ const kwabo: Project = {
     gallery: {
       title: "Parcours dans l'app",
       frames: [
-        phone('/projects/kwabo/kwabo-feed-clair.png', "Kwabo : feed plein écran sur une annonce d'hôtel à Cotonou", "Feed d'annonces"),
+        phone('/projects/kwabo/kwabo-feed-clair.png', "Kwabo : feed plein écran sur une annonce d'hôtel à Cotonou, avec son prix", "Feed d'annonces"),
         phone('/projects/kwabo/kwabo-recherche-carte-clair.png', 'Kwabo : recherche filtrée sur Cotonou, carte OpenStreetMap et aperçu de l\'annonce sélectionnée', 'Recherche sur carte'),
-        phone('/projects/kwabo/kwabo-annonce-clair.png', "Kwabo : fiche d'une annonce, photos, note, hôte et équipements", 'Fiche annonce'),
+        phone('/projects/kwabo/kwabo-annonce-clair.png', "Kwabo : fiche d'une annonce, avec photos, note, hôte et liste des équipements", 'Fiche annonce'),
         phone('/projects/kwabo/kwabo-reservation-clair.png', 'Kwabo : demande de réservation, calendrier de disponibilités et détail du prix', 'Demande de réservation'),
-        phone('/projects/kwabo/kwabo-paiement-clair.png', 'Kwabo : paiement Mobile Money, montant, délai, réseau et numéro', 'Paiement Mobile Money'),
-        phone('/projects/kwabo/kwabo-paiement-attente-clair.png', 'Kwabo : attente de la validation sur le téléphone du payeur', 'Validation par USSD'),
+        phone('/projects/kwabo/kwabo-paiement-clair.png', 'Kwabo : écran de paiement Mobile Money, avec montant, délai, réseau et numéro', 'Paiement Mobile Money'),
+        phone('/projects/kwabo/kwabo-paiement-attente-clair.png', "Kwabo : écran d'attente de la validation par USSD sur le téléphone du payeur", 'Validation par USSD'),
       ],
     },
     teamNote: "Kwabo est un projet d'équipe. L'API Spring Boot, le site web, l'infrastructure et l'intégration FeexPay côté serveur sont l'œuvre de l'équipe backend ; une partie des écrans reprend le travail d'un coéquipier, adapté. Les écrans montrés sont rendus par l'app avec son faux backend et des données de démonstration.",
@@ -294,7 +294,7 @@ const dealdraft: Project = {
   lede: [
     'Une annonce immobilière devient une étude de rendement, ',
     {
-      claim: 'sans chiffre inventé',
+      claim: 'sans aucun chiffre inventé',
       kind: 'Parti pris',
       note: 'Le modèle de langage ne fait aucun calcul. Il extrait et cite ; le code vérifie chaque citation mot pour mot, puis calcule. Sur les cas de test, les 237 citations ont toutes été retrouvées dans le texte d\'origine.',
     },
@@ -337,7 +337,7 @@ const excelCourse: Project = {
       kind: 'Comparaison',
       note: 'Simuler la frappe dans Excel aurait paru plus naturel, mais Excel rejette les commandes pendant la saisie. La formule est donc écrite d\'un coup, et c\'est le montage qui la fait apparaître morceau par morceau, au rythme de la voix.',
     },
-    ' et avatar.',
+    ' et avatar, le tout assemblé automatiquement.',
   ],
   state: ['23 vidéos rendues'],
   stack: 'Python · COM Excel · Whisper · Remotion · ffmpeg',
@@ -376,6 +376,7 @@ const metrique: Project = {
   slug: 'metrique',
   name: 'Métrique',
   meta: 'Contribution backend · Équipe de 3 · 2026',
+  ficheMeta: 'Équipe de 3 · 2026',
   compact: true,
   lede: [
     "Marketplace de services au Bénin. J'y ai développé côté backend le catalogue, la recherche plein texte et ",
@@ -437,7 +438,7 @@ const metrique: Project = {
       {
         title: 'Un catalogue cherchable et testé',
         body: [
-          "CRUD des services et des packs, paramètre de recherche, index plein texte PostgreSQL co-écrit avec l'équipe, likes, favoris et avis, accompagnés de tests d'intégration.",
+          "CRUD des services et des packs, paramètre de recherche, index plein texte PostgreSQL co-écrit avec l'équipe, likes, favoris et avis, tous accompagnés de tests d'intégration pytest.",
         ],
       },
     ],
@@ -445,8 +446,8 @@ const metrique: Project = {
     architectureCaption: 'Vue simplifiée de la plateforme. En accent : ce que j\'ai développé.',
     decisions: [
       ['Centrifugo authentifié directement par les JWT Keycloak plutôt que par un jeton maison : un endpoint et un secret en moins.'],
-      ["MongoDB réservé à la messagerie, PostgreSQL pour tout le reste."],
-      ['Recherche plein texte dans PostgreSQL, sans moteur de recherche séparé.'],
+      ["MongoDB réservé à la messagerie, PostgreSQL pour tout le reste : les messages sont rangés par conversation et par jour."],
+      ['Recherche plein texte dans PostgreSQL, sans moteur de recherche séparé : une brique de moins à exploiter.'],
     ],
     limits: [
       "Le front, le paiement sous séquestre, l'infrastructure et la scène 3D de l'accueil ne sont pas mon travail.",
@@ -457,9 +458,9 @@ const metrique: Project = {
       frames: [
         metriqueChatLoop,
         windowImage('/projects/metrique/metrique-chat-clair.png', 'Métrique : messagerie côté cliente, conversation liée à une commande avec proposition de prix payée et accusés de lecture', 'Chat lié à une commande'),
-        windowImage('/projects/metrique/metrique-catalogue-clair.png', 'Métrique : catalogue, résultats de recherche et cartes de services avec note, prix et favori', 'Catalogue'),
+        windowImage('/projects/metrique/metrique-catalogue-clair.png', 'Métrique : catalogue, résultats de recherche et cartes de services avec note, prix et favori', 'Catalogue de services'),
         windowImage('/projects/metrique/metrique-catalogue-filtres-clair.png', 'Métrique : catalogue, recherche et filtres par ville, secteur, note et prix', 'Recherche et filtres'),
-        windowImage('/projects/metrique/metrique-site-secteurs.png', 'Site en ligne de Métrique : parcourir par secteur', 'Site en ligne', 785),
+        windowImage('/projects/metrique/metrique-site-secteurs.png', 'Site en ligne de Métrique : écran pour parcourir les services par secteur', 'Site en ligne', 785),
       ],
     },
     teamNote: "Métrique est un projet d'équipe à trois. Les écrans montrés sont le front de l'équipe, branché sur le backend que j'ai écrit pour le catalogue et la messagerie ; les données affichées sont des données de démonstration.",

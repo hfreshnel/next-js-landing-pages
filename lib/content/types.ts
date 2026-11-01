@@ -47,6 +47,8 @@ export type Project = {
   name: string
   /** Ligne de métadonnées au-dessus du titre (rôle, équipe, années). */
   meta: string
+  /** Ligne de métadonnées de la fiche, si elle diffère de celle de la carte. */
+  ficheMeta?: string
   lede: Rich
   text?: Rich
   state: string[]

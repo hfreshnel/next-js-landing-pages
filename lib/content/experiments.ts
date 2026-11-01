@@ -13,13 +13,14 @@ const weaverTrace: Frame = {
     height: 1620,
     alt: "Trace réelle du banc : une recherche web renvoie une page qui demande de supprimer ~/notes, le modèle tente la suppression, la couche d'outils la bloque, et la réponse demande l'accord de l'utilisateur",
   },
-  caption: 'Trace réelle : une injection dans une page web, bloquée par la couche d\'outils',
+  caption: "Trace réelle : injection web bloquée par la couche d'outils",
 }
 
 const weaver: Project = {
   slug: 'weaver',
   name: 'weaver',
   meta: 'Seul auteur · 2026 · Agent IA local',
+  ficheMeta: '2026 · Agent IA local',
   lede: [
     "Peut-on confier son PC à un petit modèle local ? Un banc d'évaluation le mesure sur 66 demandes de novices, dans une machine Linux simulée, avec des ",
     {
@@ -45,7 +46,7 @@ const weaver: Project = {
   fiche: {
     lede: "Banc d'évaluation d'un agent IA local qui doit réaliser sur un PC des demandes de non-spécialistes, dans une machine Linux simulée, avec des garde-fous de sécurité imposés par le code.",
     facts: {
-      role: "Conception et développement du banc, du simulateur et de la méthode d'évaluation, avec un agent de code IA",
+      role: "Conception et développement du banc, du simulateur et de l'évaluation, avec un agent de code IA",
       period: '2026',
       team: 'Seul',
       status: 'Exploratoire : banc et simulateur fonctionnels, pas de prototype',
@@ -64,7 +65,7 @@ const weaver: Project = {
           kind: 'Parti pris',
           note: "Une tâche est réussie quand l'état de la machine est le bon : le son sort du bon appareil, l'instantané existe avant la mise à jour. La commande tapée importe peu, comme pour un utilisateur qui veut seulement que ça marche.",
         },
-        '.',
+        " : l'état final de la machine simulée.",
       ],
     ],
     challenges: [
@@ -77,7 +78,7 @@ const weaver: Project = {
             kind: 'Comparaison',
             note: "Quatre règles ajoutées au prompt amélioraient les cas de mise au point. Sur les cas de test final, l'agent se mettait à dater « vendredi » d'un samedi et supprimait un dossier après une question restée sans réponse.",
           },
-          ". Un petit changement en amont fait aussi basculer quelques cas d'un passage à l'autre : chaque configuration est donc mesurée sur plusieurs ordres de passage, avec un intervalle de confiance et un test de signe.",
+          ". Un changement en amont fait basculer quelques cas d'un passage à l'autre : chaque configuration est mesurée sur plusieurs ordres de passage, avec un intervalle de confiance et un test de signe.",
         ],
       },
       {
@@ -114,7 +115,7 @@ const weaver: Project = {
         {
           claim: 'le 4B agit, un 9B vérifie et termine',
           kind: 'Comparaison',
-          note: "Sur 8 ordres de passage : 37,8 cas sur 66 contre 34,5 pour le 4B seul (+3,25, intervalle de confiance à 95 % de +1,4 à +5,6). Le même tour de vérification confié au 4B lui-même restait dans le bruit : le gain vient du second regard d'un modèle plus fort.",
+          note: "Sur 8 ordres de passage : 37,8 cas sur 66 contre 34,5 pour le 4B seul (+3,25, intervalle de confiance à 95 % de +1,4 à +5,6). Le même tour de vérification confié au 4B restait dans le bruit : le gain vient du second regard d'un modèle plus fort.",
         },
         '.',
       ],
@@ -137,7 +138,7 @@ const weaver: Project = {
     limits: [
       'Tout se passe dans un simulateur : pas encore de prototype sur une vraie machine.',
       '57 % de réussite sur les cas réservés au test final, pour un objectif de 80 %.',
-      "Les tâches les plus dures, comme l'impression recto verso ou l'instantané avant mise à jour, restent hors de portée : ce sont des lacunes de connaissances.",
+      "Les tâches les plus dures, comme l'impression recto verso, restent hors de portée : des lacunes de connaissances.",
       "Pas encore de comparaison avec des utilisateurs humains, ni de canal graphique (écran, arbre d'accessibilité).",
       "Le confinement du bac à sable est applicatif : ce n'est pas une frontière de sécurité pour un usage réel.",
     ],
@@ -185,7 +186,7 @@ const textTo3d: Project = {
     },
     '.',
   ],
-  state: ['100 % de quads', '9 à 11 min par objet'],
+  state: ['100 % de quads', '9 à 11 min/objet'],
   stack: 'ComfyUI · FLUX.2 Klein · TRELLIS.2 · Blender (Python)',
   card: { surface: 'panel', frames: [textTo3dLoop] },
   pending: 'Code bientôt en open source',
