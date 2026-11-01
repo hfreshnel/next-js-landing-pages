@@ -1,3 +1,4 @@
+import { experiments } from './experiments'
 import type { Frame, Project } from './types'
 
 // Sources : portfolio-profiles/<projet>.md et synthese.md (privés). Chiffres décrivant le produit
@@ -467,8 +468,13 @@ const metrique: Project = {
 
 export const projects: Project[] = [pulapay, kwabo, dealdraft, excelCourse, metrique]
 
-export const projectsWithFiche = projects.filter((p) => p.fiche)
+// Projets puis expérimentations : les fiches se suivent dans l'ordre de la page.
+export const projectsWithFiche = [...projects, ...experiments].filter((p) => p.fiche)
 
 export function getProject(slug: string) {
-  return projects.find((p) => p.slug === slug)
+  return projects.find((p) => p.slug === slug) ?? experiments.find((p) => p.slug === slug)
+}
+
+export function isExperiment(slug: string) {
+  return experiments.some((p) => p.slug === slug)
 }

@@ -3,19 +3,22 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
+import { experiments } from '@/lib/content/experiments'
 import { sections, site } from '@/lib/content/site'
 import { NotesSwitch } from './notes'
 
 // Sur l'accueil, la navigation suit la section visible. Sur une fiche, elle renvoie à l'accueil
-// et marque « Projets ».
+// et marque « Projets » ou « Expérimentations ».
 
 export default function Sidebar() {
-  const onHome = usePathname() === '/'
-  const [current, setCurrent] = useState<string>(onHome ? 'apropos' : 'projets')
+  const pathname = usePathname()
+  const onHome = pathname === '/'
+  const ficheSection = experiments.some((p) => pathname === `/projets/${p.slug}`) ? 'experimentations' : 'projets'
+  const [current, setCurrent] = useState<string>(onHome ? 'apropos' : ficheSection)
 
   useEffect(() => {
     if (!onHome) {
-      setCurrent('projets')
+      setCurrent(ficheSection)
       return
     }
     if (!('IntersectionObserver' in window)) return
@@ -28,7 +31,7 @@ export default function Sidebar() {
       if (el) io.observe(el)
     })
     return () => io.disconnect()
-  }, [onHome])
+  }, [onHome, ficheSection])
 
   const href = (id: string) => (onHome ? `#${id}` : `/#${id}`)
   // Le nom est le titre de l'accueil ; sur une fiche, le titre est celui du projet.

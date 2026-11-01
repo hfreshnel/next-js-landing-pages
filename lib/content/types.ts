@@ -20,7 +20,7 @@ export type Swatch = { hex: string }
 
 export type Challenge = { title: string; body: Rich }
 
-export type ArchitectureId = 'pulapay' | 'kwabo' | 'metrique'
+export type ArchitectureId = 'pulapay' | 'kwabo' | 'metrique' | 'weaver'
 
 export type ProjectLink = { label: string; href: string }
 

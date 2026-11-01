@@ -5,7 +5,7 @@ import Architecture from '@/components/portfolio/Architecture'
 import { Visual } from '@/components/portfolio/Frames'
 import ScreenTour from '@/components/portfolio/ScreenTour'
 import { RichText } from '@/components/portfolio/notes'
-import { getProject, projectsWithFiche } from '@/lib/content/projects'
+import { getProject, isExperiment, projectsWithFiche } from '@/lib/content/projects'
 
 type Params = { params: Promise<{ slug: string }> }
 
@@ -36,13 +36,16 @@ export default async function FichePage({ params }: Params) {
   const count = projectsWithFiche.length
   const prev = projectsWithFiche[(index - 1 + count) % count]
   const next = projectsWithFiche[(index + 1) % count]
+  const section = isExperiment(p.slug)
+    ? { href: '/#experimentations', label: 'Expérimentations' }
+    : { href: '/#projets', label: 'Projets' }
 
   return (
     <article className="fiche" aria-labelledby="f-title">
       {/* Barre collante : retour aux projets à tout moment, et progression de lecture. */}
       <div className="fiche-bar">
-        <Link className="back" href="/#projets">
-          ← Projets
+        <Link className="back" href={section.href}>
+          ← {section.label}
         </Link>
         <span className="fiche-bar-name" aria-hidden="true">
           {p.name}

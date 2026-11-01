@@ -230,8 +230,94 @@ function Metrique() {
   )
 }
 
+function Weaver() {
+  const ah = 'url(#wv-ah)'
+  const ahh = 'url(#wv-ahh)'
+  return (
+    <svg className="arch" viewBox="0 0 640 430" role="img" aria-labelledby="arch-wv">
+      <title id="arch-wv">
+        Architecture du banc weaver : la demande passe par la boucle d&apos;agent et llama-server ; chaque appel d&apos;outil traverse la
+        couche de sécurité avant d&apos;agir sur le bac à sable et la machine simulée ; seul l&apos;état final est vérifié, puis comparé
+        sur plusieurs ordres de passage.
+      </title>
+      <Markers id="wv" />
+
+      <rect className="box" x="20" y="30" width="150" height="80" rx="6" />
+      <text className="t" x="36" y="54">Demande</text>
+      <text className="s" x="36" y="72">« J&apos;ai plus de son ! »</text>
+      <text className="s" x="36" y="90">66 cas · 3 formulations</text>
+
+      <line className="ln" x1="172" y1="70" x2="218" y2="70" markerEnd={ah} />
+
+      <rect className="box--core" x="220" y="30" width="180" height="110" rx="6" />
+      <text className="t" x="236" y="54">Boucle d&apos;agent</text>
+      <text className="s" x="236" y="72">run_agent.py · multi-tours</text>
+      <text className="s" x="236" y="90">relance après une panne</text>
+      <text className="s" x="236" y="108">tour de vérification</text>
+      <text className="s" x="236" y="124">(option)</text>
+
+      <line className="ln" x1="402" y1="62" x2="456" y2="62" markerEnd={ah} />
+      <text className="lbl" x="429" y="54" textAnchor="middle">messages</text>
+      <line className="ln ln--hook" x1="458" y1="100" x2="404" y2="100" markerEnd={ahh} />
+      <text className="lbl lbl--accent" x="430" y="118" textAnchor="middle">outils</text>
+
+      <rect className="box" x="458" y="30" width="172" height="110" rx="6" />
+      <text className="t" x="472" y="54">llama-server</text>
+      <text className="s" x="472" y="72">Qwen3.5-4B : agit</text>
+      <text className="s" x="472" y="90">Bonsai 2 9B : vérifie</text>
+      <text className="s" x="472" y="108">GGUF · CUDA</text>
+      <text className="s" x="472" y="124">6 Go de VRAM</text>
+
+      <line className="ln" x1="310" y1="142" x2="310" y2="176" markerEnd={ah} />
+
+      <rect className="box--core" x="220" y="178" width="180" height="146" rx="6" />
+      <text className="t" x="236" y="202">Couche d&apos;outils</text>
+      <rect className="layer" x="234" y="214" width="152" height="30" rx="3" />
+      <text className="tl" x="246" y="233">Liste blanche · pipes</text>
+      <rect className="layer" x="234" y="250" width="152" height="30" rx="3" />
+      <text className="tl" x="246" y="269">Confirmation imposée</text>
+      <rect className="layer" x="234" y="286" width="152" height="30" rx="3" />
+      <text className="tl" x="246" y="305">Corbeille invisible</text>
+
+      <line className="ln" x1="402" y1="250" x2="456" y2="250" markerEnd={ah} />
+      <text className="lbl" x="429" y="242" textAnchor="middle">actions</text>
+
+      <rect className="box" x="458" y="178" width="172" height="146" rx="6" />
+      <text className="t" x="472" y="202">Machine simulée</text>
+      <text className="s" x="472" y="220">état JSON, rien de réel</text>
+      <text className="s" x="472" y="240">son · wifi · impression</text>
+      <text className="s" x="472" y="256">scanner · paquets</text>
+      <text className="s" x="472" y="272">instantanés · bluetooth</text>
+      <text className="s" x="472" y="296">/etc · /proc · /sys</text>
+      <text className="s" x="472" y="312">sans fuite de l&apos;hôte</text>
+
+      <line className="ln" x1="310" y1="326" x2="310" y2="350" markerEnd={ah} />
+
+      <rect className="box" x="220" y="352" width="180" height="58" rx="6" />
+      <text className="t" x="236" y="376">Bac à sable</text>
+      <text className="s" x="236" y="394">faux /home/user par cas</text>
+
+      <line className="ln" x1="218" y1="381" x2="172" y2="381" markerEnd={ah} />
+
+      <rect className="box" x="20" y="352" width="150" height="58" rx="6" />
+      <text className="t" x="36" y="376">Vérifications</text>
+      <text className="s" x="36" y="394">état final · pertes</text>
+
+      <line className="ln" x1="95" y1="350" x2="95" y2="296" markerEnd={ah} />
+
+      <rect className="box" x="20" y="178" width="150" height="116" rx="6" />
+      <text className="t" x="36" y="202">Statistiques</text>
+      <text className="s" x="36" y="220">8 ordres de passage</text>
+      <text className="s" x="36" y="238">IC par bootstrap</text>
+      <text className="s" x="36" y="256">test de signe</text>
+      <text className="s" x="36" y="280">test final séparé</text>
+    </svg>
+  )
+}
+
 export default function Architecture({ id }: { id: ArchitectureId }) {
   if (id === 'pulapay') return <PulaPay />
   if (id === 'kwabo') return <Kwabo />
+  if (id === 'weaver') return <Weaver />
   return <Metrique />
 }
