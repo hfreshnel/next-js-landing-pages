@@ -1,6 +1,7 @@
 import ContactForm from '@/components/portfolio/ContactForm'
 import ProjectCard from '@/components/portfolio/ProjectCard'
 import { RichText } from '@/components/portfolio/notes'
+import { experiments } from '@/lib/content/experiments'
 import { projects } from '@/lib/content/projects'
 import { about, parcours, site, stack } from '@/lib/content/site'
 
@@ -24,6 +25,21 @@ export default function HomePage() {
         <div className="projects">
           {projects.map((p, i) => (
             <ProjectCard key={p.slug} project={p} priority={i === 0} />
+          ))}
+        </div>
+      </section>
+
+      <section className="sec" id="experimentations" aria-labelledby="h-experimentations">
+        <h2 className="sec-label" id="h-experimentations">Expérimentations</h2>
+        <div className="prose">
+          <p>
+            Des projets exploratoires, menés en local sur un GPU portable de 6 Go. La règle est la même partout : chaque étape doit
+            prouver son gain sur une mesure, et chaque verdict est écrit, y compris quand il donne tort à mon premier choix.
+          </p>
+        </div>
+        <div className="projects">
+          {experiments.map((p) => (
+            <ProjectCard key={p.slug} project={p} />
           ))}
         </div>
       </section>

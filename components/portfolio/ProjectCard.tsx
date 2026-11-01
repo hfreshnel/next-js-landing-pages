@@ -21,7 +21,7 @@ export default function ProjectCard({ project: p, priority }: { project: Project
           ))}
         </ul>
         <p className="stack-line">{p.stack}</p>
-        {!p.card || p.compact ? <Swatches palette={p.palette} inline /> : null}
+        {p.palette && (!p.card || p.compact) ? <Swatches palette={p.palette} inline /> : null}
         <div className="actions">
           {p.fiche ? (
             <Link className="more" href={`/projets/${p.slug}`}>
@@ -33,7 +33,7 @@ export default function ProjectCard({ project: p, priority }: { project: Project
               {l.label} ↗
             </a>
           ))}
-          {!p.fiche && !p.links?.length ? <span className="later">Fiche à venir</span> : null}
+          {!p.fiche && !p.links?.length ? <span className="later">{p.pending ?? 'Fiche à venir'}</span> : null}
         </div>
       </div>
     </article>

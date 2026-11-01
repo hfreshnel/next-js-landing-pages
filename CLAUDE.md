@@ -110,6 +110,6 @@ Ne pas modifier sans demande explicite :
 
 ## En cours de décision
 
-- Expérimentations : choix des visuels, et vérification des licences des modèles dont les sorties sont publiées.
+- Expérimentations : liens vers le code une fois les dépôts publiés. La pub réalisée pour Métrique n'est montrée qu'avec l'accord de l'équipe.
 - Photo, années de formation, version anglaise.
 - DealDraft : lien vers le code public seulement après décision sur son historique git.

@@ -51,10 +51,13 @@ export type Project = {
   text?: Rich
   state: string[]
   stack: string
-  palette: Swatch[]
+  /** Couleurs du produit. Absente pour une expérimentation, qui n'a pas d'identité visuelle propre. */
+  palette?: Swatch[]
   /** Visuel de la carte, sur fond graphite (`panel`) ou craie (`paper`). */
   card?: { surface: 'panel' | 'paper'; frames: Frame[] }
   compact?: boolean
+  /** Mention affichée tant qu'il n'y a ni fiche ni lien (« Fiche à venir » par défaut). */
+  pending?: string
   links?: ProjectLink[]
   fiche?: Fiche
 }

@@ -149,7 +149,7 @@ export default async function FichePage({ params }: Params) {
           <h2 className="fiche-h display" id="h-galerie">
             {f.gallery.title}
           </h2>
-          <ScreenTour frames={f.gallery.frames} glow={p.palette[0]?.hex} />
+          <ScreenTour frames={f.gallery.frames} glow={p.palette?.[0]?.hex} />
         </section>
       ) : null}
 

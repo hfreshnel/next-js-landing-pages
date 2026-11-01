@@ -14,13 +14,14 @@ export const site = {
 export const sections = [
   { id: 'apropos', label: 'À propos' },
   { id: 'projets', label: 'Projets' },
+  { id: 'experimentations', label: 'Expérimentations' },
   { id: 'parcours', label: 'Parcours' },
   { id: 'stack', label: 'Stack' },
   { id: 'contact', label: 'Contact' },
 ] as const
 
 export const about: { lede: string; body: Rich } = {
-  lede: "Ingénieur logiciel, je conçois des produits complets, de l'app mobile à l'API. Mes cinq derniers projets, menés seul ou en équipe, vont du paiement mobile à l'IA appliquée.",
+  lede: "Ingénieur logiciel, je conçois des produits complets, de l'app mobile à l'API. Mes cinq derniers projets, menés seul ou en équipe, vont du paiement mobile à l'IA appliquée. À côté, j'expérimente l'IA en local : agents, 3D, image et vidéo.",
   body: [
     'Dans chacun, je cherche à ',
     {
@@ -36,6 +37,7 @@ export const about: { lede: string; body: Rich } = {
 export const parcours: Array<{ years: string | null; title: string; detail: string }> = [
   { years: null, title: "Diplôme d'ingénieur généraliste", detail: 'ESIGELEC, Rouen' },
   { years: '2025 → 2026', title: "Cinq projets, du paiement mobile à l'IA appliquée", detail: 'Détail dans la section Projets' },
+  { years: '2026', title: "Expérimentations d'IA en local", detail: 'Détail dans la section Expérimentations' },
 ]
 
 // Outils réellement utilisés dans les projets présentés (voir les profils).
@@ -47,6 +49,7 @@ export const stack: Array<{ domain: string; items: string[] }> = [
   { domain: 'Temps réel et identité', items: ['Centrifugo', 'Keycloak (OIDC, JWKS)', 'Better Auth'] },
   { domain: 'Paiement', items: ['Circle', 'Coinbase CDP', 'FeexPay (Mobile Money)'] },
   { domain: 'IA et automatisation', items: ['OpenAI', 'n8n', 'Whisper'] },
+  { domain: 'IA locale', items: ['llama.cpp', 'ComfyUI', 'Blender (Python)', 'faster-whisper'] },
   { domain: 'Vidéo programmatique', items: ['Remotion', 'ffmpeg'] },
   { domain: 'Qualité', items: ['Jest', 'MSW', 'pytest', 'Sentry'] },
 ]
